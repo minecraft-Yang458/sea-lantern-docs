@@ -6,6 +6,9 @@ import { VERSION, RELEASE_BASE, ASSET_VERSION, RPM_ASSET_VERSION, ARCH_PKG_ASSET
 
 請依你的系統選擇對應安裝包下載並安裝。  
 - 建議優先使用安裝包格式（Windows 選 EXE，macOS 選 DMG）。
+- 較為特殊的是Docker
+    1. 此版本無頭，這代表著你可以在伺服器運行
+    2. 此版本跨平台，可以在支持docker的所有平台運行
 - 若想先看改動內容，請點上方版本號查看更新日誌。
 
 ## 最新版本
@@ -82,6 +85,22 @@ sudo apt install sea-lantern-ppa-updater
 支援 Ubuntu 20.04 LTS、22.04 LTS 與 24.04 LTS。
 
 該 PPA 為社群維護渠道，不屬於官方發布渠道；若遇到問題請改用上方 DEB 安裝包。
+
+## Docker
+1. 安裝docker詳見部分[安裝docker](https://www.bilibili.com/video/BV1vm421T7Kw/?share_source=copy_web&vd_source=67ab86499fd78344263cc23e969c3fe4)
+2. 拉取最新的海晶燈docker鏡像
+```bash
+docker pull penetr4t10n/sealantern:latest
+```
+3. 運行最新的海晶燈錄像
+tip:docker內的網路環境是隔離的所以要把web端口和伺服器端口暴露
+```
+docker run -d 
+--name sealantern 
+-p 3000:3000 
+-p 25565:25565/tcp 
+penetr4t10n/sealantern:latest
+```
 
 ## 系統需求
 
